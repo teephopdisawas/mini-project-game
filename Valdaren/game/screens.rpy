@@ -151,6 +151,7 @@ style say_label:
     properties gui.text_properties("name", accent=True)
     xalign gui.name_xalign
     yalign 0.5
+    color gui.name_text_color
 
 style say_dialogue:
     properties gui.text_properties("dialogue")
