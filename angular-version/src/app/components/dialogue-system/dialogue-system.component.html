@@ -1,0 +1,40 @@
+<div class="dialogue-system" *ngIf="currentScene">
+  <div *ngIf="!currentScene" class="dialogue-error">
+    Scene not found: {{currentSceneId}}
+  </div>
+
+  <div *ngIf="currentScene" class="dialogue-box">
+    <div class="speaker-name">{{currentScene.speaker}}</div>
+    <div class="dialogue-text">
+      {{currentScene.text}}
+    </div>
+  </div>
+
+  <div *ngIf="showNameInput" class="name-input">
+    <input
+      type="text"
+      [(ngModel)]="nameInput"
+      placeholder="Enter your name..."
+      maxlength="30"
+      (keydown)="onKeyPress($event)"
+    />
+    <button (click)="handleNameSubmit()" [disabled]="!nameInput.trim()">
+      Confirm
+    </button>
+  </div>
+
+  <div *ngIf="currentScene.choices && !showNameInput" class="dialogue-choices">
+    <button
+      *ngFor="let choice of currentScene.choices"
+      (click)="handleChoice(choice)"
+      [class]="'choice-button ' + (isChoiceAvailable(choice) ? 'available' : 'disabled')"
+      [disabled]="!isChoiceAvailable(choice)"
+    >
+      {{choice.text}}
+      <span *ngIf="choice.glyphUsed" class="glyph-indicator">✨</span>
+      <span *ngIf="choice.requiresLanguages && choice.requiresLanguages.length > 0" class="language-requirement">
+        (Requires: {{choice.requiresLanguages.join(', ')}})
+      </span>
+    </button>
+  </div>
+</div>
