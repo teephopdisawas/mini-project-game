@@ -34,11 +34,11 @@ export class DialogueSystemComponent implements OnInit, OnChanges {
     this.currentScene = this.scenes.find(scene => scene.id === this.currentSceneId) || null;
     this.showNameInput = this.currentScene?.choices?.some(choice => choice.id === 'choose_name') || false;
     
-    // Handle auto-advance
-    if (this.currentScene?.autoAdvance) {
+    // Handle auto-advance - but only if no choices are present
+    if (this.currentScene?.autoAdvance && !this.currentScene.choices) {
       setTimeout(() => {
         this.sceneChange.emit(this.currentScene!.autoAdvance!);
-      }, 2000); // Wait 2 seconds before auto-advancing
+      }, 3000); // Wait 3 seconds before auto-advancing
     }
   }
 
