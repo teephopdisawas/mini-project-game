@@ -14,25 +14,25 @@ This repository contains multiple implementations of a game project:
 
 ## 🌐 Deployment
 
-Both web applications are **ready for deployment** on Vercel and Netlify with optimized configurations.
+Both web applications are **ready for deployment** on Vercel, Netlify, and AppWrite Sites with optimized configurations.
 
 ### Quick Deploy
 
 **Deploy React App:**
 ```bash
 cd web-version
-vercel --prod  # or netlify deploy --prod
+vercel --prod  # or netlify deploy --prod or appwrite deploy
 ```
 
 **Deploy Angular App:**
 ```bash
 cd angular-version  
-vercel --prod  # or netlify deploy --prod
+vercel --prod  # or netlify deploy --prod or appwrite deploy
 ```
 
 **Deploy from Root (React by default):**
 ```bash
-vercel --prod  # or netlify deploy --prod
+vercel --prod  # or netlify deploy --prod or appwrite deploy
 ```
 
 ### Comprehensive Guide
@@ -40,8 +40,9 @@ vercel --prod  # or netlify deploy --prod
 See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions including:
 - Multi-app deployment strategies
 - Environment configurations
-- Platform-specific settings
+- Platform-specific settings (Vercel, Netlify, AppWrite Sites)
 - Build optimization details
+- AppWrite Sites setup guide
 
 ## 🛠️ Development
 
@@ -90,6 +91,8 @@ mini-project-game/
 ├── vercel.json          # Vercel config (React)
 ├── vercel-angular.json  # Vercel config (Angular)  
 ├── netlify.toml         # Netlify config (both apps)
+├── appwrite.json        # AppWrite Sites config (React)
+├── appwrite-angular.json # AppWrite Sites config (Angular)
 └── DEPLOYMENT.md        # Deployment guide
 ```
 

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://appwrite.io/schemas/appwrite.json",
+  "projectId": "[PROJECT_ID]",
+  "functions": [],
+  "databases": [],
+  "collections": [],
+  "buckets": [],
+  "sites": [
+    {
+      "$id": "angular-game",
+      "name": "Mini Project Game (Angular)",
+      "directory": ".",
+      "buildCommand": "npm install && npm run build",
+      "outputDirectory": "dist/angular-version/browser",
+      "rootDirectory": ".",
+      "framework": "angular",
+      "nodeVersion": "18",
+      "environmentVariables": {},
+      "customDomains": [],
+      "redirects": [
+        {
+          "source": "/(.*)",
+          "destination": "/index.html",
+          "type": 200
+        }
+      ]
+    }
+  ]
+}
