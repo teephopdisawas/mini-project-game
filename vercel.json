@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "buildCommand": "cd web-version && npm install && npm run build",
+  "outputDirectory": "web-version/dist",
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}

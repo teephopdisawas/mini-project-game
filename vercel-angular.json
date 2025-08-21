@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "angular-version/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/angular-version/browser"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
+      "dest": "/index.html"
+    }
+  ],
+  "installCommand": "cd angular-version && npm install",
+  "buildCommand": "cd angular-version && npm run build",
+  "outputDirectory": "angular-version/dist/angular-version/browser",
+  "framework": "angular"
+}
