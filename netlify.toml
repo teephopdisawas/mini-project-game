@@ -1,0 +1,39 @@
+# Default configuration for React (web-version)
+[build]
+  base = "web-version/"
+  command = "npm run build"
+  publish = "dist/"
+
+# SPA routing configuration
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Alternative build configuration for Angular version
+# To use this, set environment variable: APP_VERSION=angular
+[context.angular]
+  base = "angular-version/"
+  command = "npm run build"
+  publish = "dist/angular-version/browser/"
+
+[context.angular.redirects]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Environment-specific configurations
+[context.production]
+  base = "web-version/"
+  command = "npm run build"
+  publish = "dist/"
+
+[context.deploy-preview]
+  base = "web-version/"
+  command = "npm run build"
+  publish = "dist/"
+
+[context.branch-deploy]
+  base = "web-version/"
+  command = "npm run build"
+  publish = "dist/"
