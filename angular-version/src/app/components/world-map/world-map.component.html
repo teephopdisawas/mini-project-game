@@ -1,0 +1,64 @@
+<div class="map-container">
+  <div *ngIf="!mapData" class="map-loading">
+    Loading map...
+  </div>
+
+  <div *ngIf="mapData">
+    <div class="map-header">
+      <h2>Map of Valdaren</h2>
+      <button (click)="onClose()" class="close-btn">×</button>
+    </div>
+    
+    <div class="map-content">
+      <div class="map-image-container">
+        <img 
+          [src]="mapData.map_image" 
+          alt="Map of Valdaren"
+          class="map-image"
+        />
+        
+        <div class="regions-overlay">
+          <div 
+            *ngFor="let region of mapData.regions"
+            class="region-marker"
+            [style.left.%]="region.x"
+            [style.top.%]="region.y"
+            [style.width.%]="region.w"
+            [style.height.%]="region.h"
+            (click)="handleRegionClick(region)"
+            [title]="region.name"
+          >
+            <span class="region-name">{{region.name}}</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="factions-list">
+        <h3>Factions</h3>
+        <ul>
+          <li *ngFor="let region of mapData.regions" class="faction-item">
+            <strong>{{region.name}}</strong>
+            <span class="influence-level">Influence: {{region.influence}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Region Detail Modal -->
+    <div *ngIf="selectedRegion" class="modal-overlay" (click)="closeRegionInfo()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <h3>{{selectedRegion.name}}</h3>
+        <p><strong>Faction:</strong> {{selectedRegion.faction}}</p>
+        <p><strong>Influence:</strong> {{selectedRegion.influence}}</p>
+        <p>{{selectedRegion.description}}</p>
+        
+        <div class="modal-actions">
+          <button (click)="closeRegionInfo()">Acknowledge</button>
+          <button (click)="investigateRegion(selectedRegion)">
+            Investigate Further
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

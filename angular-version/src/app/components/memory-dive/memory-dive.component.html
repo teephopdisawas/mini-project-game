@@ -1,0 +1,54 @@
+<div class="memory-dive-container" *ngIf="gameState$ | async as state">
+  <div class="chamber-header">
+    <h2>Memory-Dive Chamber</h2>
+    <button (click)="onClose()" class="close-btn">×</button>
+  </div>
+
+  <div class="chamber-description">
+    <p>You activate a Memory-Dive Chamber. The dreamscape shimmers around you. Choose a tether to probe...</p>
+  </div>
+
+  <div class="memory-options">
+    <div *ngFor="let memory of getMemories(state.memories)" class="memory-option">
+      <button 
+        class="memory-button"
+        [class.locked]="memory.locked"
+        [class.unlocked]="!memory.locked"
+        (click)="handleMemoryInteraction(memory.id)"
+      >
+        <div class="memory-title">{{memory.title}}</div>
+        <div class="memory-id">({{memory.id}})</div>
+      </button>
+      
+      <div *ngIf="memory.locked" class="memory-status locked">
+        <span>🔒</span> The glyph resists — it needs more semantic context to open.
+      </div>
+      
+      <div *ngIf="!memory.locked" class="memory-status unlocked">
+        <span>✨</span> {{memory.content}}
+      </div>
+    </div>
+    
+    <div class="translation-option">
+      <button 
+        class="translation-button"
+        (click)="handleGlyphTranslation()"
+      >
+        Attempt to translate a glyph
+      </button>
+      <div class="translation-info">
+        You try to render the glyph through your current languages...
+        <div *ngIf="state.knownLanguages.length > 1" class="success-hint">
+          ✓ Multiple languages detected - translation may succeed
+        </div>
+        <div *ngIf="state.knownLanguages.length <= 1" class="failure-hint">
+          ⚠ Not enough interpretative context. Try learning another language.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chamber-footer">
+    <button (click)="onClose()" class="return-button">Return to Hub</button>
+  </div>
+</div>

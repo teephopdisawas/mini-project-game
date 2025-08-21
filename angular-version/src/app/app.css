@@ -1,0 +1,28 @@
+/* Global styles for the game */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  outline: none;
+}
+
+input {
+  font-family: inherit;
+}
+
+/* Remove default Angular styles */
+:host {
+  display: block;
+  min-height: 100vh;
+}

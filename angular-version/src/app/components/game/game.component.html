@@ -1,0 +1,66 @@
+<div class="game-container">
+  <div [ngSwitch]="currentScreen">
+    
+    <!-- Prologue Screen -->
+    <div *ngSwitchCase="'prologue'">
+      <app-dialogue-system
+        [scenes]="prologueChapter"
+        [currentSceneId]="currentSceneId"
+        (sceneChange)="onSceneChange($event)"
+        (complete)="handleSceneComplete()"
+      ></app-dialogue-system>
+    </div>
+
+    <!-- Language Selection Screen -->
+    <div *ngSwitchCase="'language_selection'">
+      <app-dialogue-system
+        [scenes]="languageSelectionScene"
+        [currentSceneId]="currentSceneId"
+        (sceneChange)="onSceneChange($event)"
+        (complete)="handleSceneComplete()"
+      ></app-dialogue-system>
+    </div>
+
+    <!-- Hub Screen -->
+    <div *ngSwitchCase="'hub'">
+      <div class="hub-container">
+        <app-dialogue-system
+          [scenes]="hubScene"
+          [currentSceneId]="currentSceneId"
+          (sceneChange)="onSceneChange($event)"
+          (complete)="handleSceneComplete()"
+        ></app-dialogue-system>
+        
+        <div class="hub-navigation">
+          <h3>Explore</h3>
+          <div class="nav-buttons">
+            <button (click)="navigateToScreen('map')">🗺️ World Map</button>
+            <button (click)="navigateToScreen('lexicon')">📖 Lexicon</button>
+            <button (click)="navigateToScreen('memory_dive')">🧠 Memory-Dive</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map Screen -->
+    <div *ngSwitchCase="'map'">
+      <app-world-map (close)="returnToHub()"></app-world-map>
+    </div>
+
+    <!-- Lexicon Screen -->
+    <div *ngSwitchCase="'lexicon'">
+      <app-lexicon-sidebar (close)="returnToHub()"></app-lexicon-sidebar>
+    </div>
+
+    <!-- Memory Dive Screen -->
+    <div *ngSwitchCase="'memory_dive'">
+      <app-memory-dive (close)="returnToHub()"></app-memory-dive>
+    </div>
+
+    <!-- Default/Error Screen -->
+    <div *ngSwitchDefault>
+      <div class="error-screen">Screen not found: {{currentScreen}}</div>
+    </div>
+
+  </div>
+</div>

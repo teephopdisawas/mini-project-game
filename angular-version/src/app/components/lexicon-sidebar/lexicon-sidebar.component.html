@@ -1,0 +1,80 @@
+<div class="lexicon-sidebar" *ngIf="gameState$ | async as state">
+  <div class="lexicon-header">
+    <h2>Lexicon</h2>
+    <button (click)="onClose()" class="close-btn">×</button>
+  </div>
+  
+  <div class="lexicon-content">
+    <section class="languages-section">
+      <h3>Known Languages</h3>
+      <ul class="language-list">
+        <li *ngFor="let lang of state.knownLanguages" class="language-item">
+          <span class="language-name">{{lang}}</span>
+          <span *ngIf="state.languageFlags[lang]" class="language-active">✓</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="memories-section">
+      <h3>Unlocked Glyphs</h3>
+      <ng-container *ngIf="getUnlockedMemories(state.memories).length > 0; else noMemories">
+        <ul class="memory-list">
+          <li *ngFor="let memory of getUnlockedMemories(state.memories)" class="memory-item unlocked">
+            <div class="memory-title">{{memory.title}}</div>
+            <div class="memory-content">{{memory.content}}</div>
+          </li>
+        </ul>
+      </ng-container>
+      <ng-template #noMemories>
+        <p class="no-memories">No glyphs unlocked yet.</p>
+      </ng-template>
+      
+      <h3>Locked Glyphs</h3>
+      <ng-container *ngIf="getLockedMemories(state.memories).length > 0; else noLockedMemories">
+        <ul class="memory-list">
+          <li *ngFor="let memory of getLockedMemories(state.memories)" class="memory-item locked">
+            <div class="memory-title">{{memory.title}}</div>
+            <div class="memory-status">🔒 Requires more context to unlock</div>
+          </li>
+        </ul>
+      </ng-container>
+      <ng-template #noLockedMemories>
+        <p class="no-memories">All available glyphs have been unlocked.</p>
+      </ng-template>
+    </section>
+
+    <section class="consequences-section">
+      <h3>Path Taken</h3>
+      <div *ngIf="Object.keys(state.consequenceMap).length > 0; else noConsequences" class="consequences">
+        <div *ngFor="let key of Object.keys(state.consequenceMap)" class="consequence-group">
+          <h4>{{key}}</h4>
+          <ul>
+            <li *ngFor="let value of state.consequenceMap[key]">{{value}}</li>
+          </ul>
+        </div>
+      </div>
+      <ng-template #noConsequences>
+        <p class="no-consequences">Your choices have left no traces... yet.</p>
+      </ng-template>
+    </section>
+
+    <section class="faction-section">
+      <h3>Faction Standing</h3>
+      <div class="faction-list">
+        <div *ngFor="let faction of Object.keys(state.factionInfluence)" class="faction-item">
+          <span class="faction-name">{{faction}}</span>
+          <div class="influence-bar">
+            <div 
+              class="influence-fill"
+              [style.width.%]="state.factionInfluence[faction]"
+              [class.high]="state.factionInfluence[faction] >= 70"
+              [class.medium]="state.factionInfluence[faction] >= 40 && state.factionInfluence[faction] < 70"
+              [class.low]="state.factionInfluence[faction] < 40"
+            ></div>
+            <span class="influence-value">{{state.factionInfluence[faction]}}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+.dialogue-system {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.dialogue-error {
+  color: #ff6b6b;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 107, 107, 0.1);
+  border-radius: 8px;
+}
+
+.dialogue-box {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.speaker-name {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+.dialogue-text {
+  line-height: 1.6;
+  font-size: 1.1em;
+  white-space: pre-line;
+}
+
+.name-input {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0;
+  align-items: center;
+}
+
+.name-input input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1.1em;
+}
+
+.name-input input:focus {
+  outline: none;
+  border-color: #646cff;
+}
+
+.name-input button {
+  padding: 12px 24px;
+  background: #646cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+.name-input button:disabled {
+  background: #666;
+  cursor: not-allowed;
+}
+
+.dialogue-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.choice-button {
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1em;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.choice-button.available:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #646cff;
+  transform: translateY(-2px);
+}
+
+.choice-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: rgba(100, 100, 100, 0.1);
+}
+
+.glyph-indicator {
+  margin-left: 8px;
+  font-size: 0.9em;
+}
+
+.language-requirement {
+  display: block;
+  font-size: 0.8em;
+  color: #ffd700;
+  margin-top: 4px;
+  font-style: italic;
+}
