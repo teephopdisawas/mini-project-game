@@ -1,0 +1,29 @@
+{
+  "$schema": "https://appwrite.io/schemas/appwrite.json",
+  "projectId": "[PROJECT_ID]",
+  "functions": [],
+  "databases": [],
+  "collections": [],
+  "buckets": [],
+  "sites": [
+    {
+      "$id": "react-game",
+      "name": "Mini Project Game (React)",
+      "directory": ".",
+      "buildCommand": "npm install && npm run build",
+      "outputDirectory": "dist",
+      "rootDirectory": ".",
+      "framework": "react",
+      "nodeVersion": "18",
+      "environmentVariables": {},
+      "customDomains": [],
+      "redirects": [
+        {
+          "source": "/(.*)",
+          "destination": "/index.html",
+          "type": 200
+        }
+      ]
+    }
+  ]
+}
