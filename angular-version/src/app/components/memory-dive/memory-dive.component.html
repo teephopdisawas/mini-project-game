@@ -9,7 +9,7 @@
   </div>
 
   <div class="memory-options">
-    <div *ngFor="let memory of getMemories(state.memories)" class="memory-option">
+    <div *ngFor="let memory of getMemories(state.memories); trackBy: trackByMemoryId" class="memory-option">
       <button 
         class="memory-button btn-glass"
         [class.locked]="memory.locked"

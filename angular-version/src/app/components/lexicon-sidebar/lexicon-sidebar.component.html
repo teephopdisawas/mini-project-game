@@ -8,7 +8,7 @@
     <section class="languages-section">
       <h3>Known Languages</h3>
       <ul class="language-list">
-        <li *ngFor="let lang of state.knownLanguages" class="language-item">
+        <li *ngFor="let lang of state.knownLanguages; trackBy: trackByLanguage" class="language-item">
           <span class="language-name">{{lang}}</span>
           <span *ngIf="state.languageFlags[lang]" class="language-active">✓</span>
         </li>
@@ -19,7 +19,7 @@
       <h3>Unlocked Glyphs</h3>
       <ng-container *ngIf="getUnlockedMemories(state.memories).length > 0; else noMemories">
         <ul class="memory-list">
-          <li *ngFor="let memory of getUnlockedMemories(state.memories)" class="memory-item unlocked">
+          <li *ngFor="let memory of getUnlockedMemories(state.memories); trackBy: trackByMemoryId" class="memory-item unlocked">
             <div class="memory-title">{{memory.title}}</div>
             <div class="memory-content">{{memory.content}}</div>
           </li>
@@ -32,7 +32,7 @@
       <h3>Locked Glyphs</h3>
       <ng-container *ngIf="getLockedMemories(state.memories).length > 0; else noLockedMemories">
         <ul class="memory-list">
-          <li *ngFor="let memory of getLockedMemories(state.memories)" class="memory-item locked">
+          <li *ngFor="let memory of getLockedMemories(state.memories); trackBy: trackByMemoryId" class="memory-item locked">
             <div class="memory-title">{{memory.title}}</div>
             <div class="memory-status">🔒 Requires more context to unlock</div>
           </li>
@@ -61,7 +61,7 @@
     <section class="faction-section">
       <h3>Faction Standing</h3>
       <div class="faction-list">
-        <div *ngFor="let faction of Object.keys(state.factionInfluence)" class="faction-item">
+        <div *ngFor="let faction of Object.keys(state.factionInfluence); trackBy: trackByFactionKey" class="faction-item">
           <span class="faction-name">{{faction}}</span>
           <div class="influence-bar">
             <div 

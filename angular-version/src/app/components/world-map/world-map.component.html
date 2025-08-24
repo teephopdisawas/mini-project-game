@@ -1,10 +1,10 @@
-<div class="map-container">
+<div class="map-container glass-container">
   <div *ngIf="!mapData" class="map-loading">
     Loading map...
   </div>
 
   <div *ngIf="mapData">
-    <div class="map-header">
+    <div class="component-header">
       <h2>Map of Valdaren</h2>
       <button (click)="onClose()" class="close-btn">×</button>
     </div>
