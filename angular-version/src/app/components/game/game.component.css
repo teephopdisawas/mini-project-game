@@ -1,7 +1,7 @@
 .game-container {
   min-height: 100vh;
   padding: 20px;
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  background: var(--primary-gradient);
   color: white;
 }
 
@@ -14,40 +14,26 @@
 }
 
 .hub-navigation {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
 }
 
 .hub-navigation h3 {
   margin: 0 0 20px 0;
   font-size: 1.4em;
-  color: #ffd700;
+  color: var(--gold-color);
 }
 
 .nav-buttons {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
+  gap: var(--spacing-md);
 }
 
 .nav-buttons button {
-  padding: 16px 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  color: white;
-  cursor: pointer;
+  padding: var(--spacing-md) 20px;
   font-size: 1.1em;
-  transition: all 0.3s ease;
   text-align: left;
-}
-
-.nav-buttons button:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #646cff;
-  transform: translateY(-2px);
 }
 
 .error-screen {

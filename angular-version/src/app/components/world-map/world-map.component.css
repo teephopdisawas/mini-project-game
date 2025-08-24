@@ -1,43 +1,12 @@
 .map-container {
   max-width: 1200px;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
 }
 
 .map-loading {
   text-align: center;
   padding: 40px;
   font-size: 1.2em;
-}
-
-.map-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.map-header h2 {
-  margin: 0;
-  color: #ffd700;
-}
-
-.close-btn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 4px;
-}
-
-.close-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
 }
 
 .map-content {
@@ -54,7 +23,7 @@
 .map-image {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
 }
 
 .regions-overlay {
@@ -79,7 +48,7 @@
 
 .region-marker:hover {
   background: rgba(100, 108, 255, 0.5);
-  border-color: #646cff;
+  border-color: var(--accent-color);
   transform: scale(1.05);
 }
 
@@ -92,14 +61,14 @@
 
 .factions-list {
   flex: 1;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 16px;
+  background: var(--glass-bg);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-md);
 }
 
 .factions-list h3 {
-  margin: 0 0 16px 0;
-  color: #ffd700;
+  margin: 0 0 var(--spacing-md) 0;
+  color: var(--gold-color);
 }
 
 .factions-list ul {
@@ -109,8 +78,8 @@
 }
 
 .faction-item {
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--spacing-xs) 0;
+  border-bottom: 1px solid var(--glass-border);
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -118,7 +87,7 @@
 
 .influence-level {
   font-size: 0.9em;
-  color: #ccc;
+  color: var(--text-secondary);
 }
 
 .modal-overlay {

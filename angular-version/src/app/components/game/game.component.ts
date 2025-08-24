@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DialogueSystemComponent } from '../dialogue-system/dialogue-system.component';
 import { WorldMapComponent } from '../world-map/world-map.component';
@@ -19,7 +19,8 @@ type GameScreen = 'prologue' | 'language_selection' | 'hub' | 'map' | 'lexicon' 
     MemoryDiveComponent
   ],
   templateUrl: './game.component.html',
-  styleUrl: './game.component.css'
+  styleUrl: './game.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GameComponent implements OnInit {
   currentScreen: GameScreen = 'prologue';

@@ -1,68 +1,32 @@
 .memory-dive-container {
   max-width: 900px;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-}
-
-.chamber-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.chamber-header h2 {
-  margin: 0;
-  color: #ffd700;
-}
-
-.close-btn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 4px;
-}
-
-.close-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
 }
 
 .chamber-description {
-  padding: 24px;
+  padding: var(--spacing-lg);
   text-align: center;
-  color: #e5e5e5;
+  color: var(--text-primary);
   font-size: 1.1em;
   line-height: 1.6;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--glass-border);
 }
 
 .memory-options {
-  padding: 24px;
+  padding: var(--spacing-lg);
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: var(--spacing-lg);
 }
 
 .memory-option {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--spacing-sm);
 }
 
 .memory-button {
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  padding: 16px 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  padding: var(--spacing-md) 20px;
   text-align: left;
 }
 
@@ -84,103 +48,79 @@
 
 .memory-title {
   font-weight: bold;
-  color: #ffd700;
+  color: var(--gold-color);
   font-size: 1.1em;
   margin-bottom: 4px;
 }
 
 .memory-id {
   font-size: 0.9em;
-  color: #999;
+  color: var(--text-muted);
   font-family: monospace;
 }
 
 .memory-status {
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
   font-size: 0.95em;
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: var(--spacing-xs);
 }
 
 .memory-status.locked {
-  border-left: 3px solid #ef4444;
-  color: #fbbf24;
+  border-left: 3px solid var(--error-color);
+  color: var(--warning-color);
 }
 
 .memory-status.unlocked {
-  border-left: 3px solid #4ade80;
-  color: #e5e5e5;
+  border-left: 3px solid var(--success-color);
+  color: var(--text-primary);
 }
 
 .translation-option {
-  margin-top: 32px;
-  padding-top: 32px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--glass-border);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--spacing-md);
 }
 
 .translation-button {
-  background: linear-gradient(135deg, #646cff, #5a54d6);
-  border: none;
-  border-radius: 10px;
-  padding: 16px 24px;
-  color: white;
+  padding: var(--spacing-md) var(--spacing-lg);
   font-size: 1.1em;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.translation-button:hover {
-  background: linear-gradient(135deg, #5a54d6, #4c46d1);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(100, 108, 255, 0.3);
 }
 
 .translation-info {
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  padding: 16px;
-  color: #e5e5e5;
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-md);
+  color: var(--text-primary);
   font-size: 0.95em;
   line-height: 1.5;
 }
 
 .success-hint {
-  color: #4ade80;
+  color: var(--success-color);
   font-weight: 500;
-  margin-top: 8px;
+  margin-top: var(--spacing-xs);
 }
 
 .failure-hint {
-  color: #fbbf24;
+  color: var(--warning-color);
   font-weight: 500;
-  margin-top: 8px;
+  margin-top: var(--spacing-xs);
 }
 
 .chamber-footer {
-  padding: 20px 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 20px var(--spacing-lg);
+  border-top: 1px solid var(--glass-border);
   text-align: center;
 }
 
 .return-button {
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  padding: 12px 24px;
-  color: white;
-  cursor: pointer;
+  padding: var(--spacing-sm) var(--spacing-lg);
   font-size: 1em;
-  transition: all 0.3s ease;
-}
-
-.return-button:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #646cff;
 }

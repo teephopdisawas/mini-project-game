@@ -27,7 +27,7 @@
     <button
       *ngFor="let choice of currentScene.choices"
       (click)="handleChoice(choice)"
-      [class]="'choice-button ' + (isChoiceAvailable(choice) ? 'available' : 'disabled')"
+      [class]="'choice-button btn-glass ' + (isChoiceAvailable(choice) ? 'available' : 'disabled')"
       [disabled]="!isChoiceAvailable(choice)"
     >
       {{choice.text}}

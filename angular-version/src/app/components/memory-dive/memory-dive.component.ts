@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameService } from '../../services/game.service';
 import { Observable } from 'rxjs';
@@ -8,7 +8,8 @@ import { GameState, Memory } from '../../types/game';
   selector: 'app-memory-dive',
   imports: [CommonModule],
   templateUrl: './memory-dive.component.html',
-  styleUrl: './memory-dive.component.css'
+  styleUrl: './memory-dive.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MemoryDiveComponent {
   @Output() close = new EventEmitter<void>();
@@ -60,6 +61,10 @@ export class MemoryDiveComponent {
 
   getMemories(memories: Record<string, Memory>): Memory[] {
     return Object.values(memories);
+  }
+
+  trackByMemoryId(index: number, memory: Memory): string {
+    return memory.id;
   }
 
   onClose() {
